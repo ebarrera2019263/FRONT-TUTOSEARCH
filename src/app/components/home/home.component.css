@@ -2,7 +2,7 @@ body {
     margin: auto;
     padding: 10%;
     height: 100%;
-    background-color:rgb(214, 62, 62);
+    background: url('../../../assets/img/matese-fields-pvHma684eEI-unsplash.jpg');
     text-align: center;
 }
 
@@ -21,7 +21,7 @@ h1{
 }
 
 #trans :hover{
-    background-color: rgba(252, 215, 8, 0.534);
+    background-color: rgba(94, 10, 150, 0.623);
     transition: all 0.5s ease;
   }
 
