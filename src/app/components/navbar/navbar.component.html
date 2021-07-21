@@ -24,7 +24,7 @@
                 <a class="nav-link" routerLink="/user" *ngIf="user.role == 'ROLE_ADMIN' || user.role == 'ROLE_STUDENT' || user.role == 'ROLE_TEACHER'">{{user.username}}</a>
               </li>
               <li>
-                <img *ngIf="user.image" id="imgUser" src="{{uri+'uploadImage/'+user.image}}" alt="user image">
+                <img class="radio" *ngIf="user.image" id="imgUser" src="{{uri +'getImage/'+user.image}}" alt="user image" width="100" height="100">
               </li>
             </ul>
       </div>

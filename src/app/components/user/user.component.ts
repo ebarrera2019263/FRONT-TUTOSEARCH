@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/models/user.model';
 import { UserServiceService } from '../../services/restUser/user-service.service';
+import { UploadUserService } from 'src/app/services/uploadUser/upload-user.service';
 import { Router } from '@angular/router';
 import { CONNECTION } from 'src/app/services/global';
 
@@ -18,8 +19,9 @@ export class UserComponent implements OnInit {
   public uri;
   public status: boolean;
   public possiblePass;
+  public filesToUpload: Array<File>;
 
-  constructor(private restUser: UserServiceService, private router:Router) { 
+  constructor(private restUser: UserServiceService, private router:Router, private uploadUser: UploadUserService) { 
     this.title = 'Your Account';
     this.user = this.restUser.getUser();
     this.token = this.restUser.getToken();
@@ -54,9 +56,26 @@ export class UserComponent implements OnInit {
       }else{
         alert(res.message);
         localStorage.clear();
-        this.router.navigateByUrl('home')
+        this.router.navigateByUrl('/login')
       }
     }, error => alert(error.error.message))
+  }
+
+  fileChange(fileInput: any){
+    this.filesToUpload = <Array<File>>fileInput.target.files;
+    console.log(this.filesToUpload);
+  }
+
+  uploadImage(){
+    this.uploadUser.fileRequest(this.user._id, [], this.filesToUpload, this.token, 'image')
+    .then((res:any)=>{
+      if(res.user){
+        this.user.image = res.userImage;
+        localStorage.setItem('user', JSON.stringify(this.user));
+      }else{
+        alert(res.message);
+      }
+    })
   }
 
 }

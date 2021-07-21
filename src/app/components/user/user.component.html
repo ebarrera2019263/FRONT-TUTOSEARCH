@@ -8,7 +8,7 @@
             Message: {{message}}
           </div>
           <h1>Your Account</h1>
-          <img *ngIf="user.image && user.image != 'null'" class="mb-4" src="{{uri +'getImage/'+user.image}}" alt="" width="72" height="72">
+          <img class="radio" *ngIf="user.image && user.image != 'null'" src="{{uri +'getImage/'+user.image}}" alt="" width="250" height="250">
         <h1 class="h3 mb-3 font-weight-normal">Update your account here</h1>
         <div class="form-group">
           <label class="form-label" for="inputName">Name</label>
