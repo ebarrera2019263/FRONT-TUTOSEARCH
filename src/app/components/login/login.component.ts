@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserServiceService } from '../../services/restUser/user-service.service';
 import { Router } from '@angular/router';
-import { User } from '../../models/user.model';
+import { User } from '../../models/user.model';  
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',

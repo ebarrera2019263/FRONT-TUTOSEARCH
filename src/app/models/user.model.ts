@@ -9,4 +9,4 @@ export class User{
         public image: string,
         public role: string
     ){}
-}
+} 
