@@ -57,4 +57,14 @@ export class UserServiceService {
     return this.http.post(this.uri+'login', params, this.httOptionsAuth)
     .pipe(map(this.extractData))
   }
+
+  updateUser(userId){
+    let params = JSON.stringify(userId);
+    let headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': this.getToken()
+    })
+    return this.http.put(this.uri+'updateUser/'+userId._id, params, {headers: headers})
+    .pipe(map(this.extractData))
+  }
 }

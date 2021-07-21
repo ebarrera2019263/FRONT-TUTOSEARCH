@@ -21,7 +21,7 @@
             <ul class="navbar-nav ml-auto" *ngIf="token != null">
               <li><a class="nav-link" (click)="logOut()">Log Out</a></li>
               <li class="nav-text">
-                <a class="nav-link" routerLink="/user" *ngIf="user.role == 'ROLE_ADMIN' || user.role == 'ROLE_USER'">{{user.username}}</a>
+                <a class="nav-link" routerLink="/user" *ngIf="user.role == 'ROLE_ADMIN' || user.role == 'ROLE_STUDENT' || user.role == 'ROLE_TEACHER'">{{user.username}}</a>
               </li>
               <li>
                 <img *ngIf="user.image" id="imgUser" src="{{uri+'uploadImage/'+user.image}}" alt="user image">
