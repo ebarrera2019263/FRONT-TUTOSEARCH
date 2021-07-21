@@ -76,4 +76,17 @@ export class UserServiceService {
     return this.http.put(this.uri+'deleteUser/'+idUser, {password: password}, {headers: headers})
     .pipe(map(this.extractData))
   }
+
+  saveUserbyStudent(user){
+    let params = JSON.stringify(user);
+    return this.http.post(this.uri + 'studentSave', params, this.httOptionsAuth)
+    .pipe(map(this.extractData));
+  }
+
+  saveUserbyTeacher(user){
+    let params = JSON.stringify(user);
+    return this.http.post(this.uri + 'teacherSave', params, this.httOptionsAuth)
+    .pipe(map(this.extractData));
+  }
+
 }
