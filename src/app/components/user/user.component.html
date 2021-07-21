@@ -1,1 +1,74 @@
-<p>user works!</p>
+<app-navbar></app-navbar>
+<div id="body" class="text-center" >
+    <form class="form-signin" #userUpdate="ngForm" (ngSubmit)="onSubmit()">
+        <div class="alert alert-danger" role="alert"  *ngIf="status == false">
+            Message: {{message}}
+          </div>
+          <div class="alert alert-success" role="alert" *ngIf="status == true">
+            Message: {{message}}
+          </div>
+          <h1>Your Account</h1>
+          <img *ngIf="user.image && user.image != 'null'" class="mb-4" src="{{uri +'getImage/'+user.image}}" alt="" width="72" height="72">
+        <h1 class="h3 mb-3 font-weight-normal">Update your account here</h1>
+        <div class="form-group">
+          <label class="form-label" for="inputName">Name</label>
+            <input [(ngModel)]="user.name" name="name" #name="ngModel" class="form-control" type="text" id="inputName" placeholder="your name" required>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label class="form-label" for="inputUsername">Username</label>
+                <input [(ngModel)]="user.username" name="username" #username="ngModel" class="form-control" type="text" id="inputUsername" placeholder="username" required>
+            </div>
+            <div class="form-group col-md-6">
+                <label class="form-label" for="inputLastname">Lastname</label>
+                <input [(ngModel)]="user.lastname" name="lastname" class="form-control" type="text" id="inputLastname" placeholder="lastname">
+            </div> 
+        </div>
+       
+        <div class="form-group">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="gridCheck" name="checkbox" required>
+                <label  class="form-check-label" for="gridCheck">
+                    I accept the terms and conditions
+                </label>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-success col-lg-3 mx-2" [disabled]="!userUpdate.form.valid">
+            Update
+        </button>
+        <button type="button" class="btn btn-danger col-lg-3 mx-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          Delete Account
+        </button>
+        <button type="button" class="btn btn-warning col-lg-3 mx-2" data-bs-toggle="modal" data-bs-target="#exampleModalDos">
+          Upload Image
+        </button>
+    </form>
+  
+  
+  <!-- MODAL DELETE-->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header bg-danger text-white d-flex justify-content-center">
+          <h5 class="modal-title" id="exampleModalLabel">
+            One click to delete your account!</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <span class="mt-5 mb-3 text-muted">Are you shure to delte your account?</span>
+              <h3>This action is irreversible!</h3>
+              <span>Enter your password to continue</span>
+              <form #formRemove="ngForm">
+                  <label for="passwordRemoved"></label>
+                  <input [(ngModel)]="possiblePass" type="password" id="passwordRemoved" name="passworRemoved" required>
+              </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" data-dismiss="modal" class="btn btn-danger" [disabled]="!formRemove.form.valid" (click)="deleteAccount()">I'm sure</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  

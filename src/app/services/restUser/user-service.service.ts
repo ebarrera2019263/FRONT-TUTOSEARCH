@@ -58,13 +58,22 @@ export class UserServiceService {
     .pipe(map(this.extractData))
   }
 
-  updateUser(userId){
-    let params = JSON.stringify(userId);
+  updateUser(userToUpdate){
+    let params = JSON.stringify(userToUpdate);
     let headers = new HttpHeaders({
       'Content-Type': 'application/json',
       'Authorization': this.getToken()
     })
-    return this.http.put(this.uri+'updateUser/'+userId._id, params, {headers: headers})
+    return this.http.put(this.uri+'updateUser/'+userToUpdate._id, params, {headers: headers})
+    .pipe(map(this.extractData))
+  }
+
+  deleteUser(idUser, password){
+    let headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': this.getToken()
+    });
+    return this.http.put(this.uri+'deleteUser/'+idUser, {password: password}, {headers: headers})
     .pipe(map(this.extractData))
   }
 }

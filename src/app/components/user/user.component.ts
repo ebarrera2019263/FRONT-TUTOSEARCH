@@ -17,11 +17,13 @@ export class UserComponent implements OnInit {
   public message;
   public uri;
   public status: boolean;
+  public possiblePass;
 
   constructor(private restUser: UserServiceService, private router:Router) { 
     this.title = 'Your Account';
     this.user = this.restUser.getUser();
     this.token = this.restUser.getToken();
+    this.possiblePass = '';
     this.uri = CONNECTION.URI;
   }
 
@@ -41,6 +43,18 @@ export class UserComponent implements OnInit {
         this.status = false;
         this.message = res.message;
         this.user = this.restUser.getUser();
+      }
+    }, error => alert(error.error.message))
+  }
+
+  deleteAccount(){
+    this.restUser.deleteUser(this.user._id, this.possiblePass).subscribe((res:any)=>{
+      if(!res.userRemoved){
+        alert(res.message);
+      }else{
+        alert(res.message);
+        localStorage.clear();
+        this.router.navigateByUrl('home')
       }
     }, error => alert(error.error.message))
   }
