@@ -46,10 +46,11 @@
 				   </div>
 					</form>
 				</div>
-		
 				<div class="mt-4">
-					<div class="d-flex justify-content-center links">
-						Don't have an account? <a href="/register" class="ml-2">Sign Up</a>
+					<div class="d-flex justify-content-center mt-3 login_container">
+						 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+							Sign Up
+						  </button>
 					</div>
 					<div class="d-flex justify-content-center links">
 						<a href="#">Forgot your password?</a>
@@ -58,4 +59,27 @@
 			</div>
 		</div>
 	</div>
+	<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+	  <div class="modal-content text-center">
+		<div class="modal-header bg-warning text-white d-flex justify-content-center">
+		  <h5 class="modal-title" id="exampleModalLabel">REGISTRATE</h5>
+		  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+		</div>
+		<div class="modal-body">
+			<img  src="../../../assets/img/professor.png" width="175px" height="175px">
+		  <h1>¡Registrate como estudiante o tutor!</h1>
+		</div>
+		<div class="modal-footer bg-warning text-white">
+			<button type="button" class="btn btn-outline-success">TUTOR
+				<a href="/home"></a>
+			</button>
+		  <button type="button" class="btn btn-outline-success">ESTUDIANTE
+			  <a href="/home"></a>
+		  </button>
+		</div>
+	  </div>
+	</div>
+  </div>
 </body>
