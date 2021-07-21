@@ -28,9 +28,10 @@ export class RegisterEstudentComponent implements OnInit {
     this.userService.saveUserbyStudent(this.user).subscribe((res:any)=>{
       this.message = res.message;
       if(res.userSaved){
+        alert(this.message)
         this.userSaved = res.userSaved.username;
         register.reset();
-        //console.log(this.user)
+        console.log(this.user)
       }else{
         console.log(this.message);
       }
