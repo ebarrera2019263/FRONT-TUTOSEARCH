@@ -11,6 +11,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { RegisterComponent } from './components/register/register.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { UserComponent } from './components/user/user.component';
+import { ListCoursesByStudentComponent } from './components/list-courses-by-student/list-courses-by-student.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { UserComponent } from './components/user/user.component';
     NavbarComponent,
     RegisterComponent,
     NotFoundComponent,
-    UserComponent
+    UserComponent,
+    ListCoursesByStudentComponent
     
   ],
   imports: [
