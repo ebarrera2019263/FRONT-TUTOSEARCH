@@ -10,6 +10,7 @@ import { LoginComponent } from './components/login/login.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { RegisterComponent } from './components/register/register.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { UserComponent } from './components/user/user.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
     LoginComponent,
     NavbarComponent,
     RegisterComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    UserComponent
     
   ],
   imports: [
