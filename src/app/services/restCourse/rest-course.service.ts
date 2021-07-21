@@ -9,6 +9,7 @@ import { UserServiceService } from '../../services/restUser/user-service.service
 export class RestCourseService {
   public user;
   public uri: string;
+
   public httOptionsAuth = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',

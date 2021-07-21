@@ -21,16 +21,17 @@ public classSelected:Class;
   ngOnInit(): void {
     this.user = this.restUser.getUser();
     this.token = this.restUser.getToken();
-    this.listLeagues();
+    this.listCourses();
   }
 
-  listLeagues(){
+  listCourses(){
     console.log(this.user);
     this.restClass.getClassesByStudent(this.user._id).subscribe((res:any)=>{
       console.log(res)
-      if(res.ClassF){
-        this.classes = res.ClassF;
-
+      if(res.classFind){
+        alert(res.message)
+        this.classes = res.classFind;
+        console.log(this.classes)
       }else{
         alert(res.message)
       }
