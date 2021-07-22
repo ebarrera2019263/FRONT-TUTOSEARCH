@@ -1,11 +1,21 @@
-#body{
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-align: center;
-    align-items: center;
-    padding-top: 40px;
-    padding-bottom: 10%;
+h1{
+    font-family: 'Neucha', cursive;
+}
 
+#body{
+    margin-top: -5%;
+    padding: 10%;
+    height: 100%;
+    background-color: rgb(255, 62, 62);
+    text-align: center;
+    justify-content:center;
+
+}
+
+#subBody{
+    background-color: white;
+    padding: 10%;
+    border-radius: 15px;
 }
 
 .form-signin{
@@ -18,12 +28,16 @@
 
 .form-label{
     position:center;
-    color:white;
+    color: black;
 }
 
 .form-check-label{
     position:center;
     color:black;
+}
+
+.form-control{
+    border-color: black;
 }
 
 .radio{
