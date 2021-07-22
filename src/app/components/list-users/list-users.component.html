@@ -1,4 +1,8 @@
 <app-navbar></app-navbar>
+<body>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Neucha&display=swap" rel="stylesheet">
  <div id="encabezado">
     <h1 class="text-center h1">USUARIOS</h1>
  </div>
@@ -20,7 +24,7 @@
         
         <hr>
         <div class="card myWidth" *ngFor="let user of users | search:search">
-            <img id="centrar" src="../../../assets/img/soccer-player.png" width="100rem" height="100rem" class="img-responsive" alt=".">
+            <img id="centrar" src="../../../assets/img/grupo.png" width="100rem" height="100rem" class="img-responsive" alt=".">
             <div class="card-body">
               <h5 class="card-title">{{user.name}}</h5>
               <p class="card-text">{{user.username}}</p>
@@ -95,3 +99,4 @@
     </div>
   </div>
 </div>
+</body>
