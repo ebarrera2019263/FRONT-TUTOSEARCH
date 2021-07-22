@@ -71,4 +71,27 @@
     </div>
   </div>
   
-  
+  <!--------MODAL UPLOAD IMAGE------------>
+
+<div class="modal fade" id="exampleModalDos" tabindex="-1" aria-labelledby="exampleModalDosLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header bg-warning text-white d-flex justify-content-center">
+          <h5 class="modal-title" id="exampleModalDos">
+            Get handsome!</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <h3>Upload your image</h3>
+          <form #formImage="ngForm">
+            <label for="imageInput"></label>
+            <input type="file" name="image" id="imageInput" (change)="fileChange($event)">
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-outline-success   ripple-surface" [disabled]="!formImage.form.valid" (click)="uploadImage()">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>

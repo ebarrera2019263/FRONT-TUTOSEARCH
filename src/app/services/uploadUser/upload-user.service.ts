@@ -16,7 +16,7 @@ export class UploadUserService {
     return new Promise((resolve, reject)=>{
       var formData: any = new FormData();
       var xhr = new XMLHttpRequest();
-      let uri = this.uri+idUser+'/uploadImage';
+      let uri = this.uri+'/uploadImage/'+idUser;
 
       for(var i=0; i < files.length; i++){
         formData.append(name, files[i], files[i].name);
