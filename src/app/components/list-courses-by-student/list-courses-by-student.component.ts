@@ -29,7 +29,7 @@ public classSelected:Class;
     this.restClass.getClassesByStudent(this.user._id).subscribe((res:any)=>{
       console.log(res)
       if(res.classFind){
-        alert(res.message)
+        //alert(res.message)
         this.classes = res.classFind;
         console.log(this.classes)
       }else{
