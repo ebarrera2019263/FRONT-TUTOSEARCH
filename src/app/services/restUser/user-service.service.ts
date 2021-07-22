@@ -10,6 +10,7 @@ import { map } from 'rxjs/operators';
 export class UserServiceService {
   public token;
   public user;
+  public role;
   public uri: string;
   public httOptionsAuth = {
     headers: new HttpHeaders({
@@ -62,6 +63,16 @@ export class UserServiceService {
     .pipe(map(this.extractData))
   }
 
+
+  getRole(){
+    let role = JSON.parse(localStorage.getItem('role'));
+    if(role != null || role != undefined){
+      this.role = role;
+    }else{
+      this.role = null;
+    }
+    return this.role;
+  }
 
   login(user, tokenStatus){
     user.gettoken = tokenStatus;

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+ import { Component, OnInit } from '@angular/core';
 import { UserServiceService } from '../../services/restUser/user-service.service';
 import { Router } from '@angular/router';
 import { User } from '../../models/user.model';  
@@ -31,8 +31,8 @@ export class LoginComponent implements OnInit {
         }else{
           localStorage.setItem('token', this.token);
           localStorage.setItem('user', JSON.stringify(res.user));
-          localStorage.setItem('role', JSON.stringify(res.role));    
-          console.log(res.user, res.token);
+          localStorage.setItem('role', JSON.stringify(res.user.role));    
+          console.log(res.user, res.token , res.user.role);
           alert('Usuario logeado exitosamente');
           this.router.navigateByUrl('home')
         }
