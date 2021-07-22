@@ -15,6 +15,7 @@ import { ListCoursesByStudentComponent } from './components/list-courses-by-stud
 import { RegisterEstudentComponent } from './components/register-estudent/register-estudent.component';
 import { ListUsersComponent } from './components/list-users/list-users.component';
 import { SearchPipe } from './pipes/search.pipe';
+import { AllCoursesComponent } from './components/all-courses/all-courses.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { SearchPipe } from './pipes/search.pipe';
     ListCoursesByStudentComponent,
     RegisterEstudentComponent,
     ListUsersComponent,
-    SearchPipe
+    SearchPipe,
+    AllCoursesComponent
     
   ],
   imports: [

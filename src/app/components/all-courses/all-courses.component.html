@@ -1,0 +1,61 @@
+<app-navbar></app-navbar>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Neucha&display=swap');
+    </style>
+
+    <body>
+        
+        <div id="encabezado">
+            <h1 class="text-center h1">CURSOS DISPONIBLES</h1>
+         </div>
+
+         <form class="form-inline justify-content-center">
+            <div class="h-100">
+              <div class="d-flex justify-content-center h-100">
+                <div class="searchbar">
+                  <input  [(ngModel)]="search" class="search_input" type="search" name="search"  placeholder="Search...">
+                  <a href="/listUsers" class="search_icon"><i class="fas fa-search"></i></a>
+                </div>
+              </div>
+            </div>
+          </form>
+         <div id="trans" class="row container card-body d-grid gap-2 col-9 mx-auto" *ngFor="let class of classes | search:search">
+            <div  class="card-body">
+                <img src="../../../assets/img/notebook.png" width="75rem" height="75rem" class="img-responsive" alt=".">
+                <h1 class="card-title">{{class.name}}</h1>
+                <h3 class="card-title">{{class.description}}</h3>
+                <div>
+                    <a href="" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Inscribirme</a>
+                </div>
+                      
+            </div> 
+         </div>
+
+
+
+         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header bg-success text-white d-flex justify-content-center">
+                  <h5 class="modal-title" id="exampleModalLabel">
+                   Inscribirse al curso</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <span class="mt-5 mb-3 text-muted">Acepta dar acceso al tutor sobre sus datos públicos (Nombre, username, etc)</span>
+                    
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Inscribirme</button>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+    </body>
+
+        
+        
+        
+
+
