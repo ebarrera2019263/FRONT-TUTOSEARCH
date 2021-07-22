@@ -1,11 +1,11 @@
 <app-navbar></app-navbar>
-<body>
- 
+<body [@fadeIn]>
+  <img src="../../../assets/img/graduates.png" width="250px" height="250px" class="img-fluid">
   <h1 class="stroke">TUTOSEARCH</h1>
     <main class="mt-5">
-        <div class="row" class="container row justify-content-center align-items-center">
+        <div  class="row" class="container row justify-content-center align-items-center">
             <!--my courses-->
-        <div id="trans" class="col-lg-3 col-md-3" >
+        <div *ngIf="role == 'ROLE_STUDENT'" id="trans" class="col-lg-3 col-md-3" >
             <div class="card">
               <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
                 <img src="../../../assets/img/course.png" width="100rem" height="100rem" class="img-fluid" />
@@ -20,7 +20,7 @@
             </div>
           </div>
           <!--assing to course-->
-          <div id="trans" class="col-lg-3 col-md-3 ">
+          <div *ngIf="role == 'ROLE_STUDENT'" id="trans" class="col-lg-3 col-md-3 ">
             <div class="card">
               <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
                 <img src="../../../assets/img/open-book.png" width="100rem" height="100rem" class="img-fluid" />
