@@ -1,0 +1,97 @@
+<app-navbar></app-navbar>
+ <div id="encabezado">
+    <h1 class="text-center h1">USUARIOS</h1>
+ </div>
+
+<div class="body">
+
+  <form class="form-inline justify-content-center">
+    <div class="container h-100">
+      <div class="d-flex justify-content-center h-100">
+        <div class="searchbar">
+          <input  [(ngModel)]="search" class="search_input" type="search" name="search"  placeholder="Search...">
+          <a href="/listUsers" class="search_icon"><i class="fas fa-search"></i></a>
+        </div>
+      </div>
+    </div>
+  </form>
+
+    <div id="cards">
+        
+        <hr>
+        <div class="card myWidth" *ngFor="let user of users | search:search">
+            <img id="centrar" src="../../../assets/img/soccer-player.png" width="100rem" height="100rem" class="img-responsive" alt=".">
+            <div class="card-body">
+              <h5 class="card-title">{{user.name}}</h5>
+              <p class="card-text">{{user.username}}</p>
+              <button id="botonesCrud"(click)='getUser4(user._id)' type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                Delete 
+              </button>
+              <button id="botonesCrud" (click)='getUser4(user)' type="button" class="btn btn-warning " data-bs-toggle="modal" data-bs-target="#exampleModalDos">
+                Update
+              </button>
+            </div>
+          </div>
+          
+    </div>
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-danger text-white d-flex justify-content-center">
+        <h5 class="modal-title" id="exampleModalLabel">
+          One click to delete your account!</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <span class="mt-5 mb-3 text-muted">Are you shure to delte your account?</span>
+            <h3>This action is irreversible!</h3>
+            <span>Enter your password to continue</span>
+            <form #formRemove="ngForm">
+                <label for="passwordRemoved"></label>
+              
+            </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="exampleModalDos" tabindex="-1" aria-labelledby="exampleModalDosLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-warning text-white d-flex justify-content-center">
+        <h5 class="modal-title" id="exampleModalLabel">
+          One click to delete your account!</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <span class="mt-5 mb-3 text-muted">Update user</span>
+            <h3>Update your account here</h3>
+            
+            <!--cuerpo-->
+        <form  class="form-signin" #createLeague = "ngForm" >
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">User Name</label>
+                <input [(ngModel)]="userSelected.name"  name="name" #name="ngModel" class="form-control" type="text" id="inputName" placeholder="user name" required>
+                <label for="exampleFormControlInput12" class="form-label">User Lastname</label>
+                <input [(ngModel)]="userSelected.lastname"  name="lastname" #name="ngModel" class="form-control" type="text" id="inputLastname" placeholder="lastname" required>
+                <label for="exampleFormControlInput13" class="form-label">Username</label>
+                <input [(ngModel)]="userSelected.username"  name="username" #name="ngModel" class="form-control" type="text" id="inputUsername" placeholder="username" required>
+             
+              </div>
+
+              <div class="modal-footer">
+                
+              </div>
+          </form> 
+      </div>
+    
+    </div>
+  </div>
+</div>

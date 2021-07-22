@@ -51,6 +51,18 @@ export class UserServiceService {
     return this.user;
   }
 
+
+
+  getUsers(){
+    let headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': this.getToken()
+    });
+    return this.http.get(this.uri+ '/getUsers', {headers:headers})
+    .pipe(map(this.extractData))
+  }
+
+
   login(user, tokenStatus){
     user.gettoken = tokenStatus;
     let params = JSON.stringify(user);

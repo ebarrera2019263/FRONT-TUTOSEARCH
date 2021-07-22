@@ -13,6 +13,8 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { UserComponent } from './components/user/user.component';
 import { ListCoursesByStudentComponent } from './components/list-courses-by-student/list-courses-by-student.component';
 import { RegisterEstudentComponent } from './components/register-estudent/register-estudent.component';
+import { ListUsersComponent } from './components/list-users/list-users.component';
+import { SearchPipe } from './pipes/search.pipe';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { RegisterEstudentComponent } from './components/register-estudent/regist
     NotFoundComponent,
     UserComponent,
     ListCoursesByStudentComponent,
-    RegisterEstudentComponent
+    RegisterEstudentComponent,
+    ListUsersComponent,
+    SearchPipe
     
   ],
   imports: [

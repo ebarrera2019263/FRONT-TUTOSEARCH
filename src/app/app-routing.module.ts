@@ -6,6 +6,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { UserComponent } from './components/user/user.component';
 import { ListCoursesByStudentComponent } from './components/list-courses-by-student/list-courses-by-student.component';
 import { RegisterEstudentComponent } from './components/register-estudent/register-estudent.component';
+import { ListUsersComponent} from './components/list-users/list-users.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
  
 const routes: Routes = [
@@ -17,6 +18,7 @@ const routes: Routes = [
   {path: 'registerEstudent', component:RegisterEstudentComponent},
   {path: 'user', component:UserComponent},
   {path: 'listCoursesStudents', component:ListCoursesByStudentComponent},
+  {path: 'listUsers', component:ListUsersComponent},
   {path: '**', component: NotFoundComponent}
 ];
 
