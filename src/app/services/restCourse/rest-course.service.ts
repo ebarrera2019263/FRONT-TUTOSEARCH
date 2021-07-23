@@ -63,4 +63,13 @@ export class RestCourseService {
     .pipe(map(this.extractData))
   }
 
+  deleteInscription(idUser, idClass){
+    let headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': this.getToken()
+    });
+    return this.http.delete(this.uri+'deleteInscription/'+idUser+'/'+idClass, {headers:headers})
+    .pipe(map(this.extractData))
+  }
+
 }
