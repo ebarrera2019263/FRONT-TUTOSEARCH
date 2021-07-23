@@ -41,4 +41,25 @@ public classSelected:Class;
     error => alert(error.error.message))
   }
 
+  inscription(){
+    console.log(this.user);
+    this.restClass.inscription(this.user._id, this.classSelected).subscribe((res:any)=>{
+      console.log(res)
+      if(res.pushStudent){
+      alert(res.message)
+      console.log(res)
+      }else{
+       alert(res.message)
+        console.log(res)
+      }
+    },
+    error => alert(error.error.message))
+  }
+
+
+  getClass(userT){
+    this.classSelected = userT;
+   console.log(this.classSelected)
+  }
+
 }

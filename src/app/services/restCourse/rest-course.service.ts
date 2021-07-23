@@ -54,4 +54,13 @@ export class RestCourseService {
     .pipe(map(this.extractData))
   }
 
+  inscription(idUser, idClass){
+    let headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': this.getToken()
+    });
+    return this.http.put(this.uri+ 'inscription/'+idUser+'/'+idClass,{headers: headers})
+    .pipe(map(this.extractData))
+  }
+
 }

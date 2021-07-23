@@ -25,7 +25,7 @@
                 <h1 class="card-title">{{class.name}}</h1>
                 <h3 class="card-title">{{class.description}}</h3>
                 <div>
-                    <a href="" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Inscribirme</a>
+                    <a href="" class="btn btn-primary" (click)='getClass(class._id)' data-bs-toggle="modal" data-bs-target="#exampleModal">Inscribirme</a>
                 </div>
                       
             </div> 
@@ -48,7 +48,7 @@
         <br>
                            <h3 class="text-center h1">Acepta dar acceso al tutor a sus datos públicos</h3>
                  
-                           <button routerLink="/register" type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal" >Inscribirme</button>
+                           <button routerLink="/register" type="button"  (click)="inscription()" class="btn btn-outline-secondary" data-bs-dismiss="modal" >Inscribirme</button>
                 </div>
 
                 <div class="modal-footer bg-warning text-white">                  
