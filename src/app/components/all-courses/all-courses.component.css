@@ -12,6 +12,11 @@ h1{
     font-size: 4rem;
 }
 
+h3{
+    font-family: 'Neucha', cursive;
+    font-size: 2rem;
+}
+
 .card-body{
     color: rgb(12, 12, 12);
     margin: 7%;

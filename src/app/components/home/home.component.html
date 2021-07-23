@@ -1,7 +1,10 @@
 <app-navbar></app-navbar>
 <body [@fadeIn]>
+  <h3 class="stroke" *ngIf="token!=null">¡Bienvenido de nuevo {{user.username}}!</h3>
+  <br>
   <img src="../../../assets/img/graduates.png" width="250px" height="250px" class="img-fluid">
   <h1 class="stroke">TUTOSEARCH</h1>
+  <h3 *ngIf="token==null" class="stroke">Inicia sesión o registrate para ver las funciones de TUTOSEARCH ©</h3>
     <main class="mt-5">
         <div  class="row" class="container row justify-content-center align-items-center">
             <!--my courses-->

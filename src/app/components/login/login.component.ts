@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit {
           localStorage.setItem('user', JSON.stringify(res.user));
           localStorage.setItem('role', JSON.stringify(res.user.role));    
           console.log(res.user, res.token , res.user.role);
-          alert('Usuario logeado exitosamente');
+          console.log('Usuario logeado exitosamente');
           this.router.navigateByUrl('home')
         }
       }
