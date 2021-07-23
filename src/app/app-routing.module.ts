@@ -8,6 +8,7 @@ import { ListCoursesByStudentComponent } from './components/list-courses-by-stud
 import { RegisterEstudentComponent } from './components/register-estudent/register-estudent.component';
 import { ListUsersComponent} from './components/list-users/list-users.component';
 import { AllCoursesComponent } from './components/all-courses/all-courses.component';
+import { ListCoursesByTeacherComponent } from './components/list-courses-by-teacher/list-courses-by-teacher.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
  
 const routes: Routes = [
@@ -21,6 +22,7 @@ const routes: Routes = [
   {path: 'listCoursesStudents', component:ListCoursesByStudentComponent},
   {path: 'listUsers', component:ListUsersComponent},
   {path: 'allCourses', component:AllCoursesComponent},
+  {path: 'listCoursesTeachers', component:ListCoursesByTeacherComponent},
   {path: '**', component: NotFoundComponent}
 ];
 

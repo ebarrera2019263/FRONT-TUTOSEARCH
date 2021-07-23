@@ -1,0 +1,46 @@
+<app-navbar></app-navbar>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Neucha&display=swap');
+    </style>
+
+    <body>    
+        <h1>CURSOS</h1>
+        <p >¡Agrega más cursos!</p>  
+        <img src="../../../assets/img/add (1).png" width="100rem" height="100rem" class="img-responsive" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">  
+         <div id="trans" class="row container card-body d-grid gap-2 col-8 mx-auto" *ngFor="let class of classes">
+            <div  class="card-body">
+                <img src="../../../assets/img/letter.png" width="150rem" height="150rem" class="img-responsive" alt=".">
+                <h2 class="card-title">{{class.name}}</h2>
+                <h2 class="card-title">{{class.description}}</h2>
+            </div> 
+         </div>
+    </body>
+<!--modal-->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content text-center">
+            <div class="modal-header bg-warning text-white d-flex justify-content-center">
+              <h5 class="modal-title" id="exampleModalLabel">REGISTRATE</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <img  src="../../../assets/img/course.png" width="80px" height="80px">
+              <h2>¡Agrega un nuevo curso!</h2>
+              <form  class="form-signin" #createCourse = "ngForm" (ngSubmit) = "onSubmit(createCourse)">
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Name course</label>
+                    <input [(ngModel)]="classSelected.name"  name="name" #name="ngModel" class="form-control" type="text" id="inputName" placeholder="course name" required>
+                    <label for="exampleFormControlInput1" class="form-label">Description</label>
+                    <input [(ngModel)]="classSelected.description"  name="name" #name="ngModel" class="form-control" type="text" id="inputName" placeholder="..." required>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">CANCEL</button>
+                    <button type="submit" class="btn btn-success" [disabled]="!createCourse.form.valid">SAVE</button >
+                  </div>
+              </form>
+            </div>
+            <div class="modal-footer bg-warning text-white">
+            </div>
+          </div>
+        </div>
+      </div>
