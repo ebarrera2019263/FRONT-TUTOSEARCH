@@ -53,6 +53,15 @@ export class UserServiceService {
   }
 
 
+  deteleUserByAdmin(idUser, idUserDeleted){
+    let headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': this.getToken()
+    })
+    return this.http.delete(this.uri+'deleteUserByAdmin/'+idUserDeleted+'/'+idUser, {headers: headers})
+    .pipe(map(this.extractData))
+  }
+
 
   getUsers(){
     let headers = new HttpHeaders({

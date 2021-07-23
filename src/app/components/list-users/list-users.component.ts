@@ -25,6 +25,24 @@ export class ListUsersComponent implements OnInit {
   
   }
 
+
+
+  deleteUserAdmin(){
+    console.log(this.user._id, this.userSelected);
+    this.restUser.deteleUserByAdmin(this.user._id, this.userSelected).subscribe((res:any)=>{
+      if(res.userRemoved){
+        alert(res.message);
+  
+        this.user = this.restUser.getUser()
+        
+      }else{
+        alert(res.message);
+      }
+    },
+    error => alert(error.error.message))
+  }
+
+
   listUsers(){
     this.restUser.getUsers().subscribe((res:any)=>{
       if(res.users){

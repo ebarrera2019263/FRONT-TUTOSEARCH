@@ -1,6 +1,6 @@
 <app-navbar></app-navbar>
 <body>
-<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Neucha&display=swap" rel="stylesheet">
  <div id="encabezado">
@@ -28,12 +28,10 @@
             <div class="card-body">
               <h5 class="card-title">{{user.name}}</h5>
               <p class="card-text">{{user.username}}</p>
-              <button id="botonesCrud"(click)='getUser4(user._id)' type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
+              <button  center="center"  id="botonesCrud"(click)='getUser4(user._id)' type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
                 Delete 
               </button>
-              <button id="botonesCrud" (click)='getUser4(user)' type="button" class="btn btn-warning " data-bs-toggle="modal" data-bs-target="#exampleModalDos">
-                Update
-              </button>
+             
             </div>
           </div>
           
@@ -59,7 +57,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        
+        <button type="button" data-dismiss="modal" class="btn btn-danger" (click)="deleteUserAdmin()">I'm sure</button>
       </div>
     </div>
   </div>
@@ -91,6 +89,7 @@
               </div>
 
               <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">CANCEL</button>
                 
               </div>
           </form> 
