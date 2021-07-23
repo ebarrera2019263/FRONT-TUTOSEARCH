@@ -42,7 +42,7 @@ public classSelected:Class;
   }
 
   deleteInscription(){
-    this.restClass.deleteInscription(this.user._id, this.classSelected._id).subscribe((res:any)=>{
+    this.restClass.deleteInscription(this.user._id, this.classSelected).subscribe((res:any)=>{
       if(!res.classRemoved){
         alert(res.message);
       }else{
@@ -51,6 +51,11 @@ public classSelected:Class;
         this.router.navigateByUrl('/allCourses');
       }
     }, error => alert(error.error.message))
+  }
+
+  getClass(userT){
+    this.classSelected = userT;
+   console.log(this.classSelected)
   }
 
 }

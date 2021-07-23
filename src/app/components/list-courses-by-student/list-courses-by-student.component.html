@@ -15,14 +15,36 @@
                 <h3 class="card-title">{{class.description}}</h3>
                 <div id="botonesCrud">
                     <a href="" class="btn btn-primary">Ver</a>             
-                    <a href="" class="btn btn-danger">Salir</a> 
+                    <button type="button" (click)='getClass(class._id)' class="btn btn-danger col-lg-3 mx-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        Delete Class
+                      </button>
                 </div>
                       
             </div> 
          </div>
     </body>
 
-        
+<!-- MODAL DELETE-->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header bg-danger text-white d-flex justify-content-center">
+          <h5 class="modal-title" id="exampleModalLabel">
+            One click to delete your account!</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <span class="mt-5 mb-3 text-muted">Are you shure to delte your account?</span>
+              <h3>This action is irreversible!</h3>
+              <span>Enter your password to continue</span>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" data-dismiss="modal" class="btn btn-danger" (click)="deleteInscription()">I'm sure</button>
+        </div>
+      </div>
+    </div>
+  </div>        
         
         
 
