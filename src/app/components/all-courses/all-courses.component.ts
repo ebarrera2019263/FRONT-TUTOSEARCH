@@ -14,8 +14,7 @@ search;
 public message;
 public user;
 public token;
-
-
+public ins: Class;
 public classSelected:Class;
 
   constructor(private restClass: RestCourseService, private restUser: UserServiceService) { }
@@ -41,10 +40,15 @@ public classSelected:Class;
     error => alert(error.error.message))
   }
 
-  inscription(){
-    console.log(this.user);
+  getClass(userT){
+    this.classSelected = userT;
+   console.log(this.classSelected)
+  }
+
+  inscriptionClass(){
+    console.log(this.user, this.token);
     this.restClass.inscription(this.user._id, this.classSelected).subscribe((res:any)=>{
-      console.log(res)
+
       if(res.pushStudent){
       alert(res.message)
       console.log(res)
@@ -57,9 +61,6 @@ public classSelected:Class;
   }
 
 
-  getClass(userT){
-    this.classSelected = userT;
-   console.log(this.classSelected)
-  }
+  
 
 }

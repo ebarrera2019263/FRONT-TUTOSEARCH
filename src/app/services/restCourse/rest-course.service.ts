@@ -68,9 +68,10 @@ export class RestCourseService {
       'Content-Type': 'application/json',
       'Authorization': this.getToken()
     });
-    return this.http.put(this.uri+ 'inscription/'+idUser+'/'+idClass,{headers: headers})
+    return this.http.put(this.uri+'inscription/'+idUser+'/'+idClass, {headers:headers})
     .pipe(map(this.extractData))
   }
+
 
   deleteInscription(idUser, idClass){
     let headers = new HttpHeaders({
