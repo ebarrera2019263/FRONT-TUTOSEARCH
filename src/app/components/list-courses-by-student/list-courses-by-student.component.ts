@@ -48,7 +48,7 @@ public classSelected:Class;
       }else{
         alert(res.message);
         localStorage.clear();
-        this.router.navigateByUrl('/allCourses');
+        this.router.navigateByUrl('/home');
       }
     }, error => alert(error.error.message))
   }
