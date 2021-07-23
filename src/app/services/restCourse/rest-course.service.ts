@@ -45,6 +45,15 @@ export class RestCourseService {
     .pipe(map(this.extractData))
   }
 
+  getClassesByTeacher(idUser){
+    let headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': this.getToken()
+    });
+    return this.http.get(this.uri+ 'listClassByT/'+idUser,{headers: headers})
+    .pipe(map(this.extractData))
+  }
+
   allClasses(idUser){
     let headers = new HttpHeaders({
       'Content-Type': 'application/json',
@@ -71,5 +80,16 @@ export class RestCourseService {
     return this.http.delete(this.uri+'deleteInscription/'+idUser+'/'+idClass, {headers:headers})
     .pipe(map(this.extractData))
   }
+
+  saveCourse(idUser,course){
+    let headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': this.getToken()
+    })
+    let params = JSON.stringify(course);
+    return this.http.post(this.uri+'saveClass/'+idUser, params,{headers:headers})
+    .pipe(map(this.extractData));
+  }
+
 
 }
