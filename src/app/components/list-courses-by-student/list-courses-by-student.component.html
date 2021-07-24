@@ -14,9 +14,9 @@
                 <h1 class="card-title">{{class.name}}</h1>
                 <h3 class="card-title">{{class.description}}</h3>
                 <div>
-                    <button type="submit" class="btn btn-primary col-lg-3 mx-2" [disabled]="!userUpdate.form.valid">
+                    <a href='/course' class="btn btn-primary col-lg-3 mx-2">
                         See
-                    </button>            
+                    </a>            
                     <button type="button" (click)='getClass(class._id)' class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
                         Delete Class
                       </button>

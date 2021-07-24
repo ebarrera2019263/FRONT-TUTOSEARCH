@@ -56,7 +56,7 @@ export class UserComponent implements OnInit {
       }else{
         alert(res.message);
         localStorage.clear();
-        this.router.navigateByUrl('/login')
+        this.router.navigateByUrl('/register')
       }
     }, error => alert(error.error.message))
   }
