@@ -13,6 +13,11 @@
                 <h2 class="card-title">{{class.name}}</h2>
                 <h2 class="card-title">{{class.description}}</h2>
             </div> 
+            <div>
+              <img src="../../../assets/img/delete.png" width="50rem" height="50rem" class="img-responsive" type="button" data-bs-toggle="modal" data-bs-target="#modalDelete" alt="delete">
+              <img src="../../../assets/img/complete.png" width="50rem" height="50rem" class="img-responsive" type="button" data-bs-toggle="modal" data-bs-target="#modalpublic" alt="publicacion">
+              <img src="../../../assets/img/list.png" width="50rem" height="50rem" class="img-responsive" type="button" data-bs-toggle="modal" data-bs-target="#modalMaterial" alt="materialApoyo" >
+            </div>
          </div>
     </body>
 <!--modal-->
@@ -44,3 +49,51 @@
           </div>
         </div>
       </div>
+      <!--modal delete-->
+    <div class="modal fade" id="modalDelete" tabindex="-1" aria-labelledby="modalDeleteLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content text-center">
+          <div class="modal-header bg-warning text-white d-flex justify-content-center">
+            <h5 class="modal-title" id="modalDeleteLabel">DELETE</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+              ..
+          </div>
+          <div class="modal-footer bg-warning text-white">
+          </div>
+        </div>
+      </div>
+    </div>
+      <!--modal publicación-->
+    <div class="modal fade" id="modalpublic" tabindex="-1" aria-labelledby="modalpublicLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content text-center">
+          <div class="modal-header bg-warning text-white d-flex justify-content-center">
+            <h5 class="modal-title" id="modalpublicLabel">PUBLICACIÓN</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            ...
+          </div>
+          <div class="modal-footer bg-warning text-white">
+          </div>
+        </div>
+      </div>
+    </div>
+      <!--modal material de apoyo-->
+    <div class="modal fade" id="modalMaterial" tabindex="-1" aria-labelledby="modalMaterialLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content text-center">
+          <div class="modal-header bg-warning text-white d-flex justify-content-center">
+            <h5 class="modal-title" id="modalMaterialLabel">MATEARIAL DE APOYO</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            -...
+          </div>
+          <div class="modal-footer bg-warning text-white">
+          </div>
+        </div>
+      </div>
+    </div>
