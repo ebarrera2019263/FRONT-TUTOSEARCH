@@ -92,5 +92,38 @@ export class RestCourseService {
     .pipe(map(this.extractData));
   }
 
+  deleteCourseByTeacher(idUser,idCourse){
+    let headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': this.getToken()
+    })
+    return this.http.delete(this.uri+'deleteClass/'+idUser+'/'+idCourse, {headers: headers})
+    .pipe(map(this.extractData))
+  }
 
+  fileRequest(idUser:string, idClass: string,params: Array<string>, files: Array<File>, token:string, name:string){
+    return new Promise((resolve, reject)=>{
+      var formData: any = new FormData();
+      var xhr = new XMLHttpRequest();
+      let uri = this.uri+'uploadImageC/'+idUser+'/'+idClass;
+
+      for(var i=0; i < files.length; i++){
+        formData.append(name, files[i], files[i].name);
+      }
+      xhr.onreadystatechange = ()=>{
+        if(xhr.readyState == 4){
+          if(xhr.status == 200){
+            resolve(JSON.parse(xhr.response));
+          }else{
+            reject(xhr.response)
+          }
+        }
+      }
+      xhr.open('PUT', uri, true);
+      xhr.setRequestHeader('Authorization', token);
+      xhr.send(formData);
+    })
+   }
+
+   
 }

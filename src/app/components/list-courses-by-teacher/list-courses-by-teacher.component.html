@@ -14,7 +14,7 @@
                 <h2 class="card-title">{{class.description}}</h2>
             </div> 
             <div>
-              <img src="../../../assets/img/delete.png" width="50rem" height="50rem" class="img-responsive" type="button" data-bs-toggle="modal" data-bs-target="#modalDelete" alt="delete">
+              <img src="../../../assets/img/delete.png" (click)='getClass(class._id)' width="50rem" height="50rem" class="img-responsive" type="button" data-bs-toggle="modal" data-bs-target="#modalDelete" alt="delete">
               <img src="../../../assets/img/complete.png" width="50rem" height="50rem" class="img-responsive" type="button" data-bs-toggle="modal" data-bs-target="#modalpublic" alt="publicacion">
               <img src="../../../assets/img/list.png" width="50rem" height="50rem" class="img-responsive" type="button" data-bs-toggle="modal" data-bs-target="#modalMaterial" alt="materialApoyo" >
             </div>
@@ -53,14 +53,25 @@
     <div class="modal fade" id="modalDelete" tabindex="-1" aria-labelledby="modalDeleteLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content text-center">
-          <div class="modal-header bg-warning text-white d-flex justify-content-center">
-            <h5 class="modal-title" id="modalDeleteLabel">DELETE</h5>
+          <div class="modal-header bg-danger text-white d-flex justify-content-center">
+            <h5 class="modal-title" id="modalDeleteLabel">Elimina el curso seleccionado</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-              ..
+            <h5 class="mt-5 mb-3 text-muted">¿Estas seguro de eliminar el curso?</h5>
+            <!---->
+            </div>
+            <div class="modal-body">
+              <i class="fas fa-times fa-3x text-danger"></i>
+            </div>
+            <div class="modal-footer d-flex justify-content-center">
+              <button type="button" class="btn btn-danger"  data-bs-dismiss="modal">No</button>
+              <button type="button" class="btn btn-outline-danger ripple-surface" data-mdb-dismiss="modal" style="min-width: 69px;" (click)="deleteCourse()">
+                Yes
+              </button>
+            <!---->
           </div>
-          <div class="modal-footer bg-warning text-white">
+          <div class="modal-footer bg-danger text-white">
           </div>
         </div>
       </div>
@@ -74,7 +85,16 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            ...
+            <form>
+              <div class="mb-3">
+                <label for="recipient-name" class="col-form-label">Recipient:</label>
+                <input type="text" class="form-control" id="recipient-name">
+              </div>
+              <div class="mb-3">
+                <label for="message-text" class="col-form-label">Message:</label>
+                <textarea class="form-control" id="message-text"></textarea>
+              </div>
+            </form>
           </div>
           <div class="modal-footer bg-warning text-white">
           </div>
@@ -82,18 +102,24 @@
       </div>
     </div>
       <!--modal material de apoyo-->
-    <div class="modal fade" id="modalMaterial" tabindex="-1" aria-labelledby="modalMaterialLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content text-center">
-          <div class="modal-header bg-warning text-white d-flex justify-content-center">
-            <h5 class="modal-title" id="modalMaterialLabel">MATEARIAL DE APOYO</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            -...
-          </div>
-          <div class="modal-footer bg-warning text-white">
+      <div class="modal fade" id="modalMaterial" tabindex="-1" aria-labelledby="modalMaterialLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content text-center">
+            <div class="modal-header bg-warning text-white d-flex justify-content-center">
+              <h5 class="modal-title" id="modalMaterialLabel">MATERIAL DE APOYO</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <img  src="../../../assets/img/carpeta.gif" width="80px" height="80px">
+              <h3>Subir Archivo</h3>
+            <form #formImage="ngForm">
+              <label for="imageInput"></label>
+              <input type="file" name="image" id="imageInput" (change)="fileChange($event)">
+            </form>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-outline-success ripple-surface" [disabled]="!formImage.form.valid" (click)="uploadFile()">Save changes</button>
+            </div>
           </div>
         </div>
       </div>
-    </div>

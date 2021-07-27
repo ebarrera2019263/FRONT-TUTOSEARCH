@@ -14,6 +14,7 @@ export class ListCoursesByTeacherComponent implements OnInit {
   public user;
   public token;
   public classSelected;
+  public filesToUpload: Array<File>;
   
   constructor(private restClass: RestCourseService, private restUser: UserServiceService) { }
 
@@ -39,6 +40,11 @@ export class ListCoursesByTeacherComponent implements OnInit {
     })
   }
 
+  getClass(userT){
+    this.classSelected = userT;
+   console.log(this.classSelected)
+  }
+
   listCourses(){
     console.log(this.user);
     this.restClass.getClassesByTeacher(this.user._id).subscribe((res:any)=>{
@@ -53,5 +59,37 @@ export class ListCoursesByTeacherComponent implements OnInit {
     },
     error => alert(error.error.message))
   }
+
+  /*delete*/
+  deleteCourse(){
+    console.log(this.user._id, this.classSelected);
+    this.restClass.deleteCourseByTeacher(this.user._id, this.classSelected).subscribe((res:any)=>{
+      if(res.classRemoved){
+        alert(res.message);
+      }else{
+        alert(res.message);
+      }
+    },
+    error => alert(error.error.message))
+  }
+
+  /*uploadFiles*/
+  fileChange(fileInput: any){
+    this.filesToUpload = <Array<File>>fileInput.target.files;
+    console.log(this.filesToUpload);
+  }
+
+  uploadFile(){
+    this.restClass.fileRequest(this.user._id, this.classSelected._id,[], this.filesToUpload, this.token, 'files')
+    .then((res:any)=>{
+      if(res.commentUpdated){
+        alert(res.message);
+        this.classSelected = res.commentUpdated;
+      }else{
+        alert(res.message);
+      }
+    })
+  }
+  /*comentarios*/
 
 }
