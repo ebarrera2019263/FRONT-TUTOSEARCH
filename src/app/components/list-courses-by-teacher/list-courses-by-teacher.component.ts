@@ -80,7 +80,7 @@ export class ListCoursesByTeacherComponent implements OnInit {
   }
 
   uploadFile(){
-    this.restClass.fileRequest(this.user._id, this.classSelected._id,[], this.filesToUpload, this.token, 'files')
+    this.restClass.fileRequest(this.user._id, this.classSelected,[], this.filesToUpload, this.token, 'image')
     .then((res:any)=>{
       if(res.commentUpdated){
         alert(res.message);
