@@ -23,8 +23,8 @@ export class ListCoursesByTeacherComponent implements OnInit {
   constructor(private restClass: RestCourseService, private restUser: UserServiceService) { }
 
   ngOnInit(): void {
-    this.classSelected = new Class('','','','','',[])
     this.commentSelected = new Comment ('','','','','','','','')
+    this.classSelected = new Class('','','','','',[])
     this.user = this.restUser.getUser();
     this.token = this.restUser.getToken();
     this.listCourses();
@@ -98,14 +98,12 @@ export class ListCoursesByTeacherComponent implements OnInit {
   /*comentarios*/
   saveComment(){
     console.log(this.user);
-    this.restClass.saveComment(this.user._id, this.classSelected).subscribe((res:any)=>{
+    this.restClass.saveComment(this.user._id, this.classSelected, this.commentSelected).subscribe((res:any)=>{
       this.message = res.message;
       if(res.comentSaved){
         this.commentSaved = res.comentSaved.name;
-        alert(res.message);
       }else{
         console.log(this.message);
-        alert(res.message);
       }
     },
     error=> console.log(<any>error)
