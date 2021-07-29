@@ -139,12 +139,12 @@ export class RestCourseService {
     })
    }
 
-   saveComment(idUser,idCourse){
+   saveComment(idUser,idCourse, course){
     let headers = new HttpHeaders({
       'Content-Type': 'application/json',
       'Authorization': this.getToken()
     })
-    let params = JSON.stringify(idCourse);
+    let params = JSON.stringify(course);
     return this.http.put(this.uri+'saveComment/'+idUser+'/'+idCourse, params, {headers:headers})
     .pipe(map(this.extractData));
   }
