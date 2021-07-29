@@ -15,14 +15,13 @@
                 <h3 class="card-title">{{class.description}}</h3>
                 <div>
                   <button class="btn btl-lg btn-primary btn-block" type="submit" (click)='getClass(class._id)' type="submit">See</button>           
-                    
+                  <button type="button" (click)='getClass(class._id)' data-bs-dismiss="modal" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    Delete Class
+                  </button>
                 </div>   
             </div> 
          </div>
         </form>
-        <button type="button" (click)='getClass(class._id)' class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
-          Delete Class
-        </button>
     </body>
 
 <!-- MODAL DELETE-->
