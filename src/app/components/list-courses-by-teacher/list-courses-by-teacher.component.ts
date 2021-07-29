@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Class } from 'src/app/models/class.model';
 import { RestCourseService } from 'src/app/services/restCourse/rest-course.service';
 import { UserServiceService } from '../../services/restUser/user-service.service';
+import { Comment } from '../../models/comment.model';
 
 @Component({
   selector: 'app-list-courses-by-teacher',
@@ -14,12 +15,16 @@ export class ListCoursesByTeacherComponent implements OnInit {
   public user;
   public token;
   public classSelected;
+  public commentSelected;
   public filesToUpload: Array<File>;
+  public commentSaved: string;
+
   
   constructor(private restClass: RestCourseService, private restUser: UserServiceService) { }
 
   ngOnInit(): void {
     this.classSelected = new Class('','','','','',[])
+    this.commentSelected = new Comment ('','','','','','','','')
     this.user = this.restUser.getUser();
     this.token = this.restUser.getToken();
     this.listCourses();
@@ -91,5 +96,20 @@ export class ListCoursesByTeacherComponent implements OnInit {
     })
   }
   /*comentarios*/
+  saveComment(){
+    console.log(this.user);
+    this.restClass.saveComment(this.user._id, this.classSelected).subscribe((res:any)=>{
+      this.message = res.message;
+      if(res.comentSaved){
+        this.commentSaved = res.comentSaved.name;
+        alert(res.message);
+      }else{
+        console.log(this.message);
+        alert(res.message);
+      }
+    },
+    error=> console.log(<any>error)
+    )
+  }
   /**/
 }
