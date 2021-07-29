@@ -9,6 +9,7 @@ import { UserServiceService } from '../../services/restUser/user-service.service
 export class RestCourseService {
   public user;
   public uri: string;
+  public course;
 
   public httOptionsAuth = {
     headers: new HttpHeaders({
@@ -17,7 +18,6 @@ export class RestCourseService {
     })
   };
   public token;
-  public league;
   private extractData(res: Response){
     let body = res;
     return body || [] || {};
@@ -34,6 +34,16 @@ export class RestCourseService {
       this.token = null;
     }
     return this.token;
+  }
+
+  getClass(){
+    let course = JSON.parse(localStorage.getItem('course'));
+    if(course != null || course != undefined){
+      this.course = course
+    }else{
+      this.course = null;
+    }
+    return this.course
   }
 
   getClassesByStudent(idUser){
@@ -98,6 +108,10 @@ export class RestCourseService {
       'Authorization': this.getToken()
     })
     return this.http.delete(this.uri+'deleteClass/'+idUser+'/'+idCourse, {headers: headers})
+    .pipe(map(this.extractData))
+  }
+  getClass2(idClass){
+    return this.http.get(this.uri+'getClass/'+idClass, this.httOptionsAuth)
     .pipe(map(this.extractData))
   }
 

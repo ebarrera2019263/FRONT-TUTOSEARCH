@@ -15,6 +15,8 @@ search;
 public message;
 public user;
 public token;
+public class:Class;
+public course: string;
 
 
 public classSelected:Class;
@@ -24,6 +26,14 @@ public classSelected:Class;
     this.user = this.restUser.getUser();
     this.token = this.restUser.getToken();
     this.listCourses();
+  }
+
+  onSubmit(){
+       this.restClass.getClass2(this.classSelected).subscribe((res:any)=>{
+        localStorage.setItem('course', JSON.stringify(res.class));
+        console.log('Curso seteado');
+        this.router.navigateByUrl('course')  
+       })  
   }
 
   listCourses(){

@@ -20,5 +20,32 @@ export class RestCommentsService {
     })
   };
 
-  constructor(private http:HttpClient, private restUser:UserServiceService) { }
+  constructor(private http:HttpClient, private restUser:UserServiceService) {
+    this.uri = CONNECTION.URI;
+   }
+
+  private extractData(res: Response){
+    let body = res;
+    return body || [] || {};
+  }
+
+  getToken(){
+    let token = localStorage.getItem('token');
+    if(token != null || token != undefined){
+      this.token = token;
+    }else{
+      this.token = null;
+    }
+    return this.token;
+  }
+
+  getComments(idUser, idClass){
+    let headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': this.getToken()
+    });
+    return this.http.get(this.uri+'getComments/'+idUser+'/'+idClass, {headers:headers})
+    .pipe(map(this.extractData))
+  }
+
 }

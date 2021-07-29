@@ -7,24 +7,22 @@
         <div id="encabezado">
             <h1 class="text-center h1">CURSOS DISPONIBLES</h1>
          </div>
-        
-         <div id="trans" class="row container card-body d-grid gap-2 col-9 mx-auto" *ngFor="let class of classes">
+        <form #login="ngForm" (ngSubmit)="onSubmit()">
+          <div id="trans" class="row container card-body d-grid gap-2 col-9 mx-auto" *ngFor="let class of classes">
             <div  class="card-body">
                 <img src="../../../assets/img/notebook.png" width="75rem" height="75rem" class="img-responsive" alt=".">
                 <h1 class="card-title">{{class.name}}</h1>
                 <h3 class="card-title">{{class.description}}</h3>
-                <div class="d-grid gap-2">
-                    <a href='/course' class="btn btn-primary">
-                        See
-                    </a>            
-                </div>
-                <div class="d-grid gap-2">
-                  <button type="button" (click)='getClass(class._id)' class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    Delete Class
-                  </button>
-                </div>
+                <div>
+                  <button class="btn btl-lg btn-primary btn-block" type="submit" (click)='getClass(class._id)' type="submit">See</button>           
+                    
+                </div>   
             </div> 
          </div>
+        </form>
+        <button type="button" (click)='getClass(class._id)' class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          Delete Class
+        </button>
     </body>
 
 <!-- MODAL DELETE-->
