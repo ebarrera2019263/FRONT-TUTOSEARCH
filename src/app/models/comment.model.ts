@@ -1,7 +1,7 @@
 export class Comment{
     constructor(
         public _id: string,
-        public tittle: string,
+        public title: string,
         public comm: string,
         public link1: string,
         public link2: string,

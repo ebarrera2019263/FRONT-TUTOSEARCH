@@ -3,7 +3,7 @@ import { Class } from 'src/app/models/class.model';
 import { RestCommentsService } from 'src/app/services/restComments/rest-comments.service';
 import { RestCourseService } from 'src/app/services/restCourse/rest-course.service';
 import { UserServiceService } from 'src/app/services/restUser/user-service.service';
-
+import { Comment } from '../../models/comment.model';
 
 @Component({
   selector: 'app-course',
@@ -24,6 +24,7 @@ public classSelected:Class;
     this.user = this.restUser.getUser();
     this.token = this.restUser.getToken();
     this.course = this.restClass.getClass();
+    this.comments = this.course.comments;
     console.log(this.user)
     console.log(this.course);
     this.listComments();
@@ -36,8 +37,6 @@ public classSelected:Class;
       if(res.commentsFind){
         this.comments = res.commentsFind;
         console.log(this.comments)
-      }else{
-        alert(res.message)
       }
     }, error => alert(error.error.message))
   }
