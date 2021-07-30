@@ -11,15 +11,15 @@
      <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-            <a class="nav-link" routerLink="/home" >Home</a>
+            <a class="nav-link" routerLink="/home" >Inicio</a>
           </li>
           <li class="nav-item" *ngIf="token == null"> 
-            <a class="nav-link" routerLink="/login">Login</a> 
+            <a class="nav-link" routerLink="/login">Iniciar sesión</a> 
             </li>
   
             </ul> 
             <ul class="navbar-nav ml-auto" *ngIf="token != null">
-              <li><a class="nav-link" (click)="logOut()">Log Out</a></li>
+              <li><a class="nav-link" (click)="logOut()">Cerrar sesión</a></li>
               <li class="nav-text">
                 <a class="nav-link" routerLink="/user" *ngIf="user.role == 'ROLE_ADMIN' || user.role == 'ROLE_STUDENT' || user.role == 'ROLE_TEACHER'">{{user.username}}</a>
               </li>
