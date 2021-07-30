@@ -3,6 +3,7 @@ import { Class } from 'src/app/models/class.model';
 import { RestCourseService } from 'src/app/services/restCourse/rest-course.service';
 import { UserServiceService } from '../../services/restUser/user-service.service';
 import { Comment } from '../../models/comment.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-list-courses-by-teacher',
@@ -18,10 +19,10 @@ export class ListCoursesByTeacherComponent implements OnInit {
   public commentSelected;
   public filesToUpload: Array<File>;
   public commentSaved: string;
-  public router;
+
 
   
-  constructor(private restClass: RestCourseService, private restUser: UserServiceService) { }
+  constructor(private restClass: RestCourseService, private restUser: UserServiceService, private router: Router) { }
 
   ngOnInit(): void {
     this.commentSelected = new Comment ('','','','','','','','')
@@ -46,7 +47,7 @@ export class ListCoursesByTeacherComponent implements OnInit {
       })
   }
 
-  
+
 
   getClass(userT){
     this.classSelected = userT;
@@ -108,5 +109,12 @@ export class ListCoursesByTeacherComponent implements OnInit {
     },
     error=> console.log(<any>error)
     )
+  }
+
+  funcion(){
+    this.restClass.getClass2(this.classSelected).subscribe((res:any)=>{
+      localStorage.setItem('course', JSON.stringify(res.class));
+      this.router.navigateByUrl('course')
+     })  
   }
 }

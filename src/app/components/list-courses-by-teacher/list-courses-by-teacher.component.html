@@ -15,8 +15,8 @@
             <form  class="form-signin" #get = "ngForm" (ngSubmit) = "onSubmit(createCourse)">
             <div>
               <img src="../../../assets/img/file (1).png" (click)='getClass(class._id)' width="50rem" height="50rem" class="img-responsive" type="button" data-bs-toggle="modal" data-bs-target="#modalDelete" alt="delete">
-              <img src="../../../assets/img/add-file.png" id='x' (click)='getClass(class._id)' width="50rem" height="50rem" class="img-responsive" type="button" data-bs-toggle="modal" data-bs-target="#modalpublic" alt="publicacion">
-              <img src="../../../assets/img/file.png" id='prueba' (click)='getClass(class._id)' width="50rem" height="50rem" class="img-responsive" type="button"  alt="verCommentario" >
+              <img src="../../../assets/img/add-file.png"  (click)='getClass(class._id)' width="50rem" height="50rem" class="img-responsive" type="button" data-bs-toggle="modal" data-bs-target="#modalpublic" alt="publicacion">
+              <img src="../../../assets/img/file.png" id='prueba' (click)='getClass(class._id) || funcion()' width="50rem" height="50rem" class="img-responsive" type="button"  alt="verCommentario" >
             </div>
           </form>
          </div>

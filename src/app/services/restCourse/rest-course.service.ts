@@ -155,7 +155,7 @@ export class RestCourseService {
       'Authorization': this.getToken()
     })
   
-    return this.http.put(this.uri+'saveComment/'+idUser+'/'+idCourse+'/'+idComment, {headers:headers})
+    return this.http.delete(this.uri+'deleteComment/'+idUser+'/'+idCourse+'/'+idComment, {headers:headers})
     .pipe(map(this.extractData));
   }
 

@@ -17,6 +17,7 @@ public user;
 public token;
 public course;
 public classSelected:Class;
+public commentSelected:Comment;
 
   constructor(private restComment: RestCommentsService, private restUser: UserServiceService, private restClass: RestCourseService) { }
 
@@ -24,6 +25,7 @@ public classSelected:Class;
     this.user = this.restUser.getUser();
     this.token = this.restUser.getToken();
     this.course = this.restClass.getClass();
+    this.commentSelected = new Comment('','','','','','','','')
     this.comments = this.course.comments;
     console.log(this.user)
     console.log(this.course);
@@ -49,10 +51,13 @@ public classSelected:Class;
   //Aqui debajo trabaja pablo
   deleteComment(){
     console.log(this.user._id, this.course._id);
-    this.restClass.deleteCourseByTeacher(this.user._id, this.course._id).subscribe((res:any)=>{
-      if(res.classRemoved){
-     
+    this.restClass.deleteComment(this.user._id, this.course._id, this.commentSelected).subscribe((res:any)=>{
+      if(!res.commentRemoved){
+        alert(res.message);
+        this.ngOnInit();
       }else{
+        alert(res.message);
+        console.log('aqui')
         this.ngOnInit();
       }
     },
@@ -62,6 +67,11 @@ public classSelected:Class;
   getClass(userT){
     this.classSelected = userT;
    console.log(this.classSelected)
+  }
+
+  getComment(comment){
+    this.commentSelected = comment;
+   console.log(this.commentSelected)
   }
 
 }

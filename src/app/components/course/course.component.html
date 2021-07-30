@@ -27,12 +27,11 @@
                 <a href={{comment.link3}} target="_blank" class="card-title"  *ngIf="comment.link3!=''">→ {{comment.link3}}</a><br>
                 <a href={{comment.link4}} target="_blank" class="card-title" *ngIf="comment.link4!=''">→{{comment.link4}}</a><br>
                 <a href={{comment.link1}} target="_blank" class="card-title" *ngIf="comment.link5!=''">→{{comment.link5}}</a>
+                <div *ngIf="user.role=='ROLE_TEACHER'">
+                    <img src="../../../assets/img/delete.png" (click)='getComment(comment._id)' width="50rem"  height="50rem" class="img-responsive" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" alt="delete"> 
+                </div>
             </div> 
-            <div *ngIf="user.role=='ROLE_ADMIN'">
-                <button type="button" (click)='getClass(class._id)' class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    Cancelar inscripción
-                  </button>  
-            </div>
+           
          </div>
     </div>
     
@@ -41,16 +40,15 @@
           <div class="modal-content">
             <div class="modal-header bg-danger text-white d-flex justify-content-center">
               <h5 class="modal-title" id="exampleModalLabel">
-                Estás a un paso de eliminar tu inscripción a esta clase</h5>
+                Estás a un paso de eliminar la publicacion seleccionada</h5>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
-              <span class="mt-5 mb-3 text-muted">¿Estás seguro de eliminar tu inscripción?</span>
-                  <h3>¡No puedes volver luego de eliminarla!</h3>
-            </div>
+            <br>
+              <h3>¿Estás seguro de eliminar esta publicación?</h3>
+
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-              <button type="button" data-dismiss="modal" class="btn btn-danger" >Eliminar</button>
+              <button type="button" data-dismiss="modal" (click)='deleteComment()' class="btn btn-danger" >Eliminar</button>
             </div>
           </div>
         </div>
