@@ -41,14 +41,27 @@ public classSelected:Class;
     }, error => alert(error.error.message))
   }
 
-  getClass(userT){
-    this.classSelected = userT;
-   console.log(this.classSelected)
-  }
+
 
   //Aqui debajo trabaja alfaro
   
 
   //Aqui debajo trabaja pablo
+  deleteComment(){
+    console.log(this.user._id, this.course._id);
+    this.restClass.deleteCourseByTeacher(this.user._id, this.course._id).subscribe((res:any)=>{
+      if(res.classRemoved){
+     
+      }else{
+        this.ngOnInit();
+      }
+    },
+    error => alert(error.error.message))
+  }
+
+  getClass(userT){
+    this.classSelected = userT;
+   console.log(this.classSelected)
+  }
 
 }

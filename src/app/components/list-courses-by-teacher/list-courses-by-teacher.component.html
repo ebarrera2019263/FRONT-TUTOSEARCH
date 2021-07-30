@@ -5,20 +5,20 @@
      <body>    
         <h1>CURSOS</h1>
         <p >¡Agrega más cursos!</p>  
-        <img src="../../../assets/img/add (1).png" width="100rem" height="100rem" class="img-responsive" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">  
+        <img src="../../../assets/img/add (1).png" id='x' width="100rem" height="100rem" class="img-responsive" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">  
          <div id="trans" class="row container card-body d-grid gap-2 col-8 mx-auto" *ngFor="let class of classes">
             <div  class="card-body">
                 <img src="../../../assets/img/letter.png" width="150rem" height="150rem" class="img-responsive" alt=".">
                 <h2 class="card-title">{{class.name}}</h2>
                 <h2 class="card-title">{{class.description}}</h2>
             </div> 
+            <form  class="form-signin" #get = "ngForm" (ngSubmit) = "onSubmit(createCourse)">
             <div>
               <img src="../../../assets/img/file (1).png" (click)='getClass(class._id)' width="50rem" height="50rem" class="img-responsive" type="button" data-bs-toggle="modal" data-bs-target="#modalDelete" alt="delete">
-              <img src="../../../assets/img/add-file.png" (click)='getClass(class._id)' width="50rem" height="50rem" class="img-responsive" type="button" data-bs-toggle="modal" data-bs-target="#modalpublic" alt="publicacion">
-              <img src="../../../assets/img/file (2).png" (click)='getClass(class._id)' width="50rem" height="50rem" class="img-responsive" type="button" data-bs-toggle="modal" data-bs-target="#modalMaterial" alt="materialApoyo" >
-              <img src="../../../assets/img/file.png" (click)='getClass(class._id)' width="50rem" height="50rem" class="img-responsive" type="button" routerLink="/course" alt="verCommentario" >
-              <img src="../../../assets/img/file (4).png" (click)='getClass(class._id)' width="50rem" height="50rem" class="img-responsive" type="button" href="" alt="verArchivos" >
+              <img src="../../../assets/img/add-file.png" id='x' (click)='getClass(class._id)' width="50rem" height="50rem" class="img-responsive" type="button" data-bs-toggle="modal" data-bs-target="#modalpublic" alt="publicacion">
+              <img src="../../../assets/img/file.png" id='prueba' (click)='getClass(class._id)' width="50rem" height="50rem" class="img-responsive" type="button"  alt="verCommentario" >
             </div>
+          </form>
          </div>
     </body>
 <!--modal-->
@@ -87,12 +87,12 @@
           </div>
           <div class="modal-body p-4">
             <img  src="../../../assets/img/male-teacher.png" width="100px" height="100px">
-            <h5>Inserta el material de apoyo</h5>
+            <h5>Crear nueva publicación</h5>
             <form>
               <label for="exampleFormControlInput1" class="form-label">Titulo</label>
               <input [(ngModel)]="commentSelected.title" name="name" class="form-control" type="text" id="inputName" placeholder="título" required>
               <label for="exampleFormControlInput2" class="form-label">Comentario</label>
-              <input [(ngModel)]="commentSelected.comm" name="name" class="form-control" type="text" id="inputName" placeholder="......" required>
+              <input [(ngModel)]="commentSelected.comm" name="name" class="form-control" type="text" id="inputName" placeholder="..." required>
               <!--links-->
               <label for="exampleFormControlInput3" class="form-label">link 1</label>
               <input [(ngModel)]="commentSelected.link1" name="name" class="form-control" type="text" id="inputName" placeholder="inserta un link" required>
@@ -114,24 +114,4 @@
       </div>
     </div>
       <!--modal material de apoyo-->
-      <div class="modal fade" id="modalMaterial" tabindex="-1" aria-labelledby="modalMaterialLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content text-center">
-            <div class="modal-header bg-warning text-white d-flex justify-content-center">
-              <h5 class="modal-title" id="modalMaterialLabel">MATERIAL DE APOYO</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              <img  src="../../../assets/img/carpeta.gif" width="80px" height="80px">
-              <h3>Subir Archivo</h3>
-            <form #formImage="ngForm">
-              <label for="imageInput"></label>
-              <input type="file" name="image" id="imageInput" (change)="fileChange($event)">
-            </form>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-              <button type="button" class="btn btn-outline-success ripple-surface" [disabled]="!formImage.form.valid" (click)="uploadFile()">Guardar</button>
-            </div>
-          </div>
-        </div>
-      </div>
+    

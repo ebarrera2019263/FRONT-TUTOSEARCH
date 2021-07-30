@@ -32,20 +32,21 @@ export class ListCoursesByTeacherComponent implements OnInit {
   }
 
   onSubmit(createCourse){
-    this.restClass.saveCourse(this.user._id, this.classSelected).subscribe((res:any)=>{
-      if(res.savedC){
-        
+      this.restClass.saveCourse(this.user._id, this.classSelected).subscribe((res:any)=>{
+        if(res.savedC){
         this.classSelected = new Class('','','','','',[]);
-        createCourse.reset();
-        this.ngOnInit();
-      }else{
-        console.log(this.message)
-      }
-      error =>{
-        console.log(error.error.message);
-      }
-    })
+          createCourse.reset();
+          this.ngOnInit();
+        }else{
+          console.log(this.message)
+        }
+        error =>{
+          console.log(error.error.message);
+        }
+      })
   }
+
+  
 
   getClass(userT){
     this.classSelected = userT;

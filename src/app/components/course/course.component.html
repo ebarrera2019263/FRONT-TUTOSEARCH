@@ -28,9 +28,34 @@
                 <a href={{comment.link4}} target="_blank" class="card-title" *ngIf="comment.link4!=''">→{{comment.link4}}</a><br>
                 <a href={{comment.link1}} target="_blank" class="card-title" *ngIf="comment.link5!=''">→{{comment.link5}}</a>
             </div> 
+            <div *ngIf="user.role=='ROLE_ADMIN'">
+                <button type="button" (click)='getClass(class._id)' class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    Cancelar inscripción
+                  </button>  
+            </div>
          </div>
     </div>
     
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header bg-danger text-white d-flex justify-content-center">
+              <h5 class="modal-title" id="exampleModalLabel">
+                Estás a un paso de eliminar tu inscripción a esta clase</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <span class="mt-5 mb-3 text-muted">¿Estás seguro de eliminar tu inscripción?</span>
+                  <h3>¡No puedes volver luego de eliminarla!</h3>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+              <button type="button" data-dismiss="modal" class="btn btn-danger" >Eliminar</button>
+            </div>
+          </div>
+        </div>
+      </div>   
+
 </body>
 
 <!--FINAL-->

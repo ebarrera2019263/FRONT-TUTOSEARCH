@@ -148,5 +148,17 @@ export class RestCourseService {
     return this.http.put(this.uri+'saveComment/'+idUser+'/'+idCourse, params, {headers:headers})
     .pipe(map(this.extractData));
   }
+
+  deleteComment(idUser, idCourse, idComment){
+    let headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': this.getToken()
+    })
+  
+    return this.http.put(this.uri+'saveComment/'+idUser+'/'+idCourse+'/'+idComment, {headers:headers})
+    .pipe(map(this.extractData));
+  }
+
+
    
 }
