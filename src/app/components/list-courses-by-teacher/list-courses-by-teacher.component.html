@@ -39,7 +39,7 @@
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">CANCEL</button>
-                    <button type="submit" class="btn btn-success" [disabled]="!createCourse.form.valid">SAVE</button >
+                    <button type="submit"  data-bs-dismiss="modal" class="btn btn-success" [disabled]="!createCourse.form.valid">SAVE</button >
                   </div>
               </form>
             </div>
@@ -65,7 +65,7 @@
             </div>
             <div class="modal-footer d-flex justify-content-center">
               <button type="button" class="btn btn-danger"  data-bs-dismiss="modal">No</button>
-              <button type="button" class="btn btn-outline-danger ripple-surface" data-mdb-dismiss="modal" style="min-width: 69px;" (click)="deleteCourse()">
+              <button type="button" class="btn btn-outline-danger ripple-surface" data-bs-dismiss="modal" style="min-width: 69px;" (click)="deleteCourse()">
                 Yes
               </button>
             <!---->
@@ -128,7 +128,7 @@
             </form>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-outline-success ripple-surface" [disabled]="!formImage.form.valid" (click)="uploadFile()">Save changes</button>
+              <button type="button" data-bs-dismiss="modal" class="btn btn-outline-success ripple-surface" [disabled]="!formImage.form.valid" (click)="uploadFile()">Save changes</button>
             </div>
           </div>
         </div>

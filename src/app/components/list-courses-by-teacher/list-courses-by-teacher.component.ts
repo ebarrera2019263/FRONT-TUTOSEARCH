@@ -34,7 +34,7 @@ export class ListCoursesByTeacherComponent implements OnInit {
   onSubmit(createCourse){
     this.restClass.saveCourse(this.user._id, this.classSelected).subscribe((res:any)=>{
       if(res.savedC){
-        alert(res.message);
+        
         this.classSelected = new Class('','','','','',[]);
         createCourse.reset();
       }else{
@@ -71,9 +71,9 @@ export class ListCoursesByTeacherComponent implements OnInit {
     console.log(this.user._id, this.classSelected);
     this.restClass.deleteCourseByTeacher(this.user._id, this.classSelected).subscribe((res:any)=>{
       if(res.classRemoved){
-        alert(res.message);
+     
       }else{
-        alert(res.message);
+    
       }
     },
     error => alert(error.error.message))
@@ -89,7 +89,7 @@ export class ListCoursesByTeacherComponent implements OnInit {
     this.restClass.fileRequest(this.user._id, this.classSelected,[], this.filesToUpload, this.token, 'image')
     .then((res:any)=>{
       if(res.commentUpdated){
-        alert(res.message);
+      
         this.classSelected = res.commentUpdated;
       }else{
         alert(res.message);
