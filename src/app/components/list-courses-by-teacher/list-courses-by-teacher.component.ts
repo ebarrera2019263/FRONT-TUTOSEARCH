@@ -18,6 +18,7 @@ export class ListCoursesByTeacherComponent implements OnInit {
   public commentSelected;
   public filesToUpload: Array<File>;
   public commentSaved: string;
+  public router;
 
   
   constructor(private restClass: RestCourseService, private restUser: UserServiceService) { }
