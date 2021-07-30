@@ -13,39 +13,48 @@
             <div class="h-100">
               <div class="d-flex justify-content-center h-100">
                 <div class="searchbar">
-                  <input  [(ngModel)]="search" class="search_input" type="search" name="searchCourse"  placeholder="Buscar...">
-                  <a href="/listCourses" class="search_icon"><i class="fas fa-search"></i></a>
+                  <input  [(ngModel)]="search" class="search_input" type="search" name="search"  placeholder="Search...">
+                  <a href="/listUsers" class="search_icon"><i class="fas fa-search"></i></a>
                 </div>
               </div>
             </div>
           </form>
          <div id="trans" class="row container card-body d-grid gap-2 col-9 mx-auto" *ngFor="let class of classes | search:search">
-            <div class="card-body">
+            <div  class="card-body">
                 <img src="../../../assets/img/notebook.png" width="75rem" height="75rem" class="img-responsive" alt=".">
                 <h1 class="card-title">{{class.name}}</h1>
                 <h3 class="card-title">{{class.description}}</h3>
+                <h3 class="card-title">Profesor(a): {{class.teacher.name}} {{class.teacher.lastname}}</h3>
                 <div *ngIf="user.role == 'ROLE_STUDENT'" >
-                    <a class="btn btn-secondary" (click)='getClass(class._id)' data-bs-toggle="modal" data-bs-target="#exampleModal">Inscribirme</a>
-                </div>     
+                  <a class="btn btn-secondary" (click)='getClass(class._id)' data-bs-toggle="modal" data-bs-target="#exampleModal">Inscribirme</a>
+              </div>
+                      
             </div> 
          </div>
 
-         <!--MODAL-->
+
+
          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
               <div class="modal-content">
                 <div class="modal-header bg-warning text-black d-flex justify-content-center">
                   <h5 class="modal-title" id="exampleModalLabel">
                    Inscribirse al curso</h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>    
-                </div> 
-                <div class="modal-body">
-                  <img src="../../../assets/img/tenor.gif" width="150rem" height="150rem" class="img-responsive" alt="."><br>
-                  <h3 class="text-center h1">Acepta dar acceso al tutor a sus datos públicos</h3>
-                  <button type="button" (click)="inscriptionClass()" class="btn btn-outline-secondary" data-bs-dismiss="modal" >Inscribirme</button>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    
                 </div>
+               
+                <div class="modal-body">
+                  <img src="../../../assets/img/tenor.gif" width="150rem" height="150rem" class="img-responsive" alt=".">
+        <br>
+                           <h3 class="text-center h1">Acepta dar acceso al tutor a sus datos públicos</h3>
+                 
+                           <button type="button" (click)="inscriptionClass()" class="btn btn-outline-secondary" data-bs-dismiss="modal" >Inscribirme</button>
+                </div>
+
                 <div class="modal-footer bg-warning text-white">                  
-                </div>    
+                </div>
+                
               </div>
             </div>
           </div>
