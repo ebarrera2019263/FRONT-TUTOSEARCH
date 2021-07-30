@@ -53,12 +53,11 @@ public classSelected:Class;
 
   deleteInscription(){
     this.restClass.deleteInscription(this.user._id, this.classSelected).subscribe((res:any)=>{
+      this.ngOnInit();
       if(!res.classRemoved){
         alert(res.message);
+        this.ngOnInit();
       }else{
-        alert(res.message);
-        localStorage.clear();
-        this.router.navigateByUrl('/home');
       }
     }, error => alert(error.error.message))
   }

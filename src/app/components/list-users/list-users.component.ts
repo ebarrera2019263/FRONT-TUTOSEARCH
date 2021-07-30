@@ -34,9 +34,10 @@ export class ListUsersComponent implements OnInit {
         alert(res.message);
   
         this.user = this.restUser.getUser()
-        
+        this.ngOnInit();
       }else{
         alert(res.message);
+        this.ngOnInit();
       }
     },
     error => alert(error.error.message))

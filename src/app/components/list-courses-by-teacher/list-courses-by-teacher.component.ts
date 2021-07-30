@@ -37,6 +37,7 @@ export class ListCoursesByTeacherComponent implements OnInit {
         
         this.classSelected = new Class('','','','','',[]);
         createCourse.reset();
+        this.ngOnInit();
       }else{
         console.log(this.message)
       }
@@ -60,7 +61,6 @@ export class ListCoursesByTeacherComponent implements OnInit {
         this.classes = res.classF;
         console.log(this.classes)
       }else{
-        alert(res.message)
       }
     },
     error => alert(error.error.message))
@@ -73,7 +73,7 @@ export class ListCoursesByTeacherComponent implements OnInit {
       if(res.classRemoved){
      
       }else{
-    
+        this.ngOnInit();
       }
     },
     error => alert(error.error.message))
@@ -89,10 +89,8 @@ export class ListCoursesByTeacherComponent implements OnInit {
     this.restClass.fileRequest(this.user._id, this.classSelected,[], this.filesToUpload, this.token, 'image')
     .then((res:any)=>{
       if(res.commentUpdated){
-      
         this.classSelected = res.commentUpdated;
       }else{
-        alert(res.message);
       }
     })
   }
@@ -110,5 +108,4 @@ export class ListCoursesByTeacherComponent implements OnInit {
     error=> console.log(<any>error)
     )
   }
-  /**/
 }
