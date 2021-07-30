@@ -8,21 +8,26 @@
     </div>
 
     <!--CARD-->
+    <h1 class="stroke" *ngIf="course.comments==''">Aún no hay publicaciones en este curso</h1>
+    <button type="button" routerLink="/listCoursesStudents"data-bs-dismiss="modal" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        Volver
+      </button>
     <div>
         <div id="trans" class="row container card-body d-grid gap-2 " *ngFor="let comment of comments">
+            
             <div  class="card-body">
                 <img src="../../../assets/img/letter.png" width="150rem" height="150rem" class="img-responsive" alt=".">
                 <h2 class="card-title">{{comment.title}}</h2>
+                <hr>
                 <h3 class="card-title">{{comment.comm}}</h3>
-                <h3>LINKS DE MATERIAL DE APOYO</h3>
-                <a href={{comment.link1}} class="card-title">{{comment.link1}}</a>
-                <a href={{comment.link2}} class="card-title">{{comment.link2}}</a>
-                <a href={{comment.link3}} class="card-title">{{comment.link3}}</a>
-                <a href={{comment.link4}} class="card-title">{{comment.link4}}</a>
-                <a href={{comment.link1}} class="card-title">{{comment.link5}}</a>
+                <hr>
+                <h3>  LINKS  </h3>
+                <a href={{comment.link1}} target="_blank"class="card-title" *ngIf="comment.link1!=''">→{{comment.link1}}</a><br>
+                <a href={{comment.link2}} target="_blank" class="card-title" *ngIf="comment.link2!=''">→ {{comment.link2}}</a><br>
+                <a href={{comment.link3}} target="_blank" class="card-title"  *ngIf="comment.link3!=''">→ {{comment.link3}}</a><br>
+                <a href={{comment.link4}} target="_blank" class="card-title" *ngIf="comment.link4!=''">→{{comment.link4}}</a><br>
+                <a href={{comment.link1}} target="_blank" class="card-title" *ngIf="comment.link5!=''">→{{comment.link5}}</a>
             </div> 
-            <hr>
-            <hr>
          </div>
     </div>
     

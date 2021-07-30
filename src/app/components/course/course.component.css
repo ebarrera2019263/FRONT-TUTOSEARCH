@@ -10,11 +10,19 @@ body {
 h1{
     font-family: 'Neucha', cursive;
     font-size: 4rem;
+    color: white;
+    -webkit-text-stroke-color: black;
+   
 }
 
 h2{
     font-family: 'Neucha', cursive;
     font-size: 4rem; 
+}
+
+h3{
+    font-family: 'Neucha', cursive;
+    font-size: 2rem;  
 }
 
 .card-body{
@@ -91,4 +99,9 @@ h2{
    #botonesCrud{
     display: inline-block;
     margin-left: 1rem;
+}
+a{
+    font-family: 'Neucha', cursive;
+    font-size: 1.25rem;
+  background-color:rgba(186, 87, 243, 0.308);
 }
