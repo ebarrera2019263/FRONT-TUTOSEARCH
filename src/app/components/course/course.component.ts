@@ -46,4 +46,9 @@ public classSelected:Class;
    console.log(this.classSelected)
   }
 
+  //Aqui debajo trabaja alfaro
+  
+
+  //Aqui debajo trabaja pablo
+
 }
