@@ -36,9 +36,16 @@
               <form  class="form-signin" #createCourse = "ngForm" (ngSubmit) = "onSubmit(createCourse)">
                 <div class="mb-3">
                     <label for="exampleFormControlInput1" class="form-label">Nombre del curso</label>
+                    <span *ngIf="!name.valid && name.touched">
+                      Campo obligatorio
+                  </span>
                     <input [(ngModel)]="classSelected.name"  name="name" #name="ngModel" class="form-control" type="text" id="inputName" placeholder="nombre del curso" required>
+                 
                     <label for="exampleFormControlInput1" class="form-label">Descripción</label>
-                    <input [(ngModel)]="classSelected.description"  name="name" #name="ngModel" class="form-control" type="text" id="inputName" placeholder="..." required>
+                    <span *ngIf="!des.valid && des.touched">
+                      Campo obligatorio
+                  </span>
+                    <input [(ngModel)]="classSelected.description"  name="des" #des="ngModel" class="form-control" type="text" id="inputName" placeholder="..." required>
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">CANCELAR</button>

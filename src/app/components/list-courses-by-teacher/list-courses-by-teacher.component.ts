@@ -41,9 +41,10 @@ export class ListCoursesByTeacherComponent implements OnInit {
           this.ngOnInit();
           this.courseSaved = res.savedC;
         }else{
-          console.log(this.message)
+          alert(res.message)
         }
         error =>{
+          alert(res.message)
           console.log(error.error.message);
         }
       })
