@@ -49,12 +49,12 @@ public commentSelected:Comment;
   //Aqui debajo trabaja pablo
   deleteComment(){
     console.log(this.user._id, this.course._id);
-    this.ngOnInit();
     this.restClass.deleteComment(this.user._id, this.course._id, this.commentSelected).subscribe((res:any)=>{
       if(!res.commentRemoved){
         this.ngOnInit();
         alert(res.message);
       }else{
+        this.ngOnInit();
         alert(res.message);
         console.log('aqui')
       }
