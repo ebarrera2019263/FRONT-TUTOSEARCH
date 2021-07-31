@@ -2,7 +2,7 @@ body {
     margin-top: -5%;
     padding: 10%;
     height: 100%;
-    background-color: rgb(255, 62, 62);
+    background: url('../../../assets/img/cursos.png');
     text-align: center;
     justify-content:center;
 }
@@ -10,6 +10,12 @@ body {
 h1{
     font-family: 'Neucha', cursive;
     font-size: 4rem;
+    color: white;
+}
+
+p{
+    font-family: 'Neucha', cursive;
+    color: white;
 }
 
 .card-body{
@@ -24,7 +30,7 @@ h1{
 }
 
 #trans :hover{
-    background-color: rgba(250, 126, 10, 0.733);
+    background-color: rgba(230, 226, 19, 0.911);
     transition: all 0.5s ease;
     border-color: rgb(0, 0, 0);
     justify-content:center;
@@ -93,7 +99,7 @@ h1 {
                0 7px 0 transparent,
                0 8px 0 transparent,
                0 9px 0 transparent,
-               0 10px 10px rgba(0, 0, 0, .6);
+               0 10px 10px rgb(122, 116, 116);
 }
 
 h2{
