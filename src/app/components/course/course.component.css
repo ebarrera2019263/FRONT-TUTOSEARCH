@@ -2,7 +2,7 @@ body {
     margin-top: -5%;
     padding: 10%;
     height: 100%;
-    background-color: rgb(255, 62, 62);
+    background: url('../../../assets/img/cursos.png');
     text-align: center;
     justify-content:center;
 }
@@ -13,6 +13,21 @@ h1{
     color: white;
     -webkit-text-stroke-color: black;
    
+}
+
+h1 {
+    font-family: 'Neucha', cursive;
+  font-size: 80px;
+  text-shadow: 0 1px 0 rgb(212, 183, 14),
+               0 2px 0 rgb(212, 183, 14),
+               0 3px 0 rgb(212, 183, 14),
+               0 4px 0 rgb(212, 183, 14),
+               0 5px 0 rgb(212, 183, 14),
+               0 6px 0 transparent,
+               0 7px 0 transparent,
+               0 8px 0 transparent,
+               0 9px 0 transparent,
+               0 10px 10px rgb(122, 116, 116);
 }
 
 h2{
