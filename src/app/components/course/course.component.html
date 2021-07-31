@@ -6,10 +6,14 @@
     <div id="encabezado">
         <h1 class="stroke" *ngIf="course!=null">{{course.name}}</h1>
     </div>
-
+    <h3 *ngIf="token==null" class="stroke">Inicia sesión o registrate para ver las funciones de TUTOSEARCH ©</h3>
     <!--CARD-->
+    <h1 class="stroke" *ngIf="user.role=='ROLE_TEACHER' && course.comments==''">Regresa a la página anterior para crear una publicación nueva.</h1>
     <h1 class="stroke" *ngIf="course.comments==''">Aún no hay publicaciones en este curso</h1>
-    <button type="button" routerLink="/listCoursesStudents"data-bs-dismiss="modal" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    <button *ngIf="user.role=='ROLE_STUDENT'" type="button" routerLink="/listCoursesStudents"data-bs-dismiss="modal" class="btn btn-warning">
+        Volver
+      </button>
+      <button *ngIf="user.role=='ROLE_TEACHER'"type="button" routerLink="/listCoursesTeachers"data-bs-dismiss="modal" class="btn btn-warning">
         Volver
       </button>
     <div>
@@ -48,7 +52,7 @@
 
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-              <button type="button" data-dismiss="modal" (click)='deleteComment()' class="btn btn-danger" >Eliminar</button>
+              <button type="button" data-dismiss="modal" (click)='deleteComment()' data-bs-dismiss="modal" class="btn btn-danger" >Eliminar</button>
             </div>
           </div>
         </div>

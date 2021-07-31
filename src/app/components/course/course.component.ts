@@ -25,10 +25,7 @@ public commentSelected:Comment;
     this.user = this.restUser.getUser();
     this.token = this.restUser.getToken();
     this.course = this.restClass.getClass();
-    this.commentSelected = new Comment('','','','','','','','')
     this.comments = this.course.comments;
-    console.log(this.user)
-    console.log(this.course);
     this.listComments();
   }
 
@@ -39,6 +36,7 @@ public commentSelected:Comment;
       if(res.commentsFind){
         this.comments = res.commentsFind;
         console.log(this.comments)
+        this.ngOnInit();
       }
     }, error => alert(error.error.message))
   }
@@ -51,14 +49,14 @@ public commentSelected:Comment;
   //Aqui debajo trabaja pablo
   deleteComment(){
     console.log(this.user._id, this.course._id);
+    this.ngOnInit();
     this.restClass.deleteComment(this.user._id, this.course._id, this.commentSelected).subscribe((res:any)=>{
       if(!res.commentRemoved){
-        alert(res.message);
         this.ngOnInit();
+        alert(res.message);
       }else{
         alert(res.message);
         console.log('aqui')
-        this.ngOnInit();
       }
     },
     error => alert(error.error.message))
