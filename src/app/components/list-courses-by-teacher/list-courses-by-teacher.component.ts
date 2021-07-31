@@ -19,6 +19,7 @@ export class ListCoursesByTeacherComponent implements OnInit {
   public commentSelected;
   public filesToUpload: Array<File>;
   public commentSaved: string;
+  public courseSaved: string;
 
 
   
@@ -38,6 +39,7 @@ export class ListCoursesByTeacherComponent implements OnInit {
         this.classSelected = new Class('','','','','',[]);
           createCourse.reset();
           this.ngOnInit();
+          this.courseSaved = res.savedC;
         }else{
           console.log(this.message)
         }

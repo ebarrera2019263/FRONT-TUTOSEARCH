@@ -2,6 +2,7 @@ import { Component, OnInit , DoCheck} from '@angular/core';
 import { CONNECTION } from 'src/app/services/global';
 import { UserServiceService } from '../../services/restUser/user-service.service';
 import { fadeIn } from 'src/app/animations/animations';
+import { animation } from '@angular/animations';
 
 
 @Component({
